@@ -24,4 +24,27 @@ describe('PropertiesComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should show the columns we expect', () => {
+    const ourDomTableUnderTest = document.querySelector('table');
+
+    const tableHeaders = Array.from(
+      ourDomTableUnderTest!.getElementsByClassName('mat-header-cell')
+    );
+    const headerClasses = [
+      'mat-column-name',
+      'mat-column-type',
+      'mat-column-size'
+    ];
+
+    tableHeaders.forEach(header => {
+      expect(
+        headerClasses.some(item => header.classList.contains(item))
+      ).toBeTruthy();
+    });
+  });
 });
