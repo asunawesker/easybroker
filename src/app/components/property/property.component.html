@@ -1,0 +1,25 @@
+<mat-card class="card">
+  <mat-card-title-group>
+    <mat-card-title>{{dataProperty.title}}</mat-card-title>
+    <mat-card-subtitle>{{dataProperty.public_id}}</mat-card-subtitle>
+    <img mat-card-sm-image src={{dataProperty.property_images[0].url}} >
+  </mat-card-title-group>
+  <mat-card-header>Type: {{dataProperty.operations[0].type}}</mat-card-header>
+  <mat-card-header>Location: {{dataProperty.location.name}}</mat-card-header>
+  <br>
+  <mat-card-content>
+    <b>Description:</b>
+    <br>
+    {{dataProperty.description}}
+  </mat-card-content>
+</mat-card>
+
+<ngb-carousel #carousel [interval]="3000" class="carouse">
+  <ng-template ngbSlide *ngFor="let img of dataProperty.property_images">
+    <div class="picsum-img-wrapper">
+      <img [src]="img.url">
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<app-contact></app-contact>

@@ -1,0 +1,46 @@
+<mat-card class="card">
+  <mat-card-title-group>
+    <mat-card-title>CONTACT FORM</mat-card-title>
+  </mat-card-title-group>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="form.get('name')?.hasError('required')">
+          Name Field is required
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone">
+      <mat-error *ngIf="form.get('name')?.hasError('required')">
+        Phone Field is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="form.get('name')?.hasError('required')">
+        Email Field is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Message Field is required
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Must be enter valid email
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <button mat-raised-button color="accent">Submit</button>
+
+  </form>
+
+</mat-card>

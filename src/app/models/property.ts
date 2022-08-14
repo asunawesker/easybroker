@@ -4,7 +4,7 @@ export interface IProperty {
   description: string
   location: ILocation
   operations: IOperation[]
-  property_images: any[]
+  property_images: IPropertyImages[]
 }
 
 export interface ILocation {
@@ -13,4 +13,8 @@ export interface ILocation {
 
 export interface IOperation {
   type: string
+}
+
+export interface IPropertyImages {
+  url: string
 }

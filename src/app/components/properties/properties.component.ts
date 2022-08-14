@@ -3,6 +3,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { IContent, IPagination } from 'src/app/models/properties';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-properties',
@@ -19,7 +20,7 @@ export class PropertiesComponent {
   dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private propertiesService: PropertiesService){}
+  constructor(private propertiesService: PropertiesService, private router: Router){}
 
   ngOnInit(){
     this.fetchProperties();
@@ -52,5 +53,10 @@ export class PropertiesComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  showProperty(property: IContent) {
+    let route = '/property';
+    this.router.navigate([route], { queryParams: { id: property.public_id } });
   }
 }
