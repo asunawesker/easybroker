@@ -57,7 +57,7 @@ export class ContactComponent implements OnInit {
         this.contact = {
           "name": this.form.value.name,
           "phone": this.form.value.phone,
-          "email": "correoprueba@example.com",
+          "email": this.form.value.email,
           "property_id": this.id,
           "message": this.form.value.message,
           "source": "pruebatecnica-irais.com"
